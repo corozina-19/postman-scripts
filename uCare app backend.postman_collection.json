@@ -1,14 +1,13 @@
 {
 	"info": {
-		"_postman_id": "bb091c24-19e5-4e6a-81c6-a88a1a45b048",
+		"_postman_id": "1a5d455c-6348-4451-b01b-2336cfd95411",
 		"name": "uCare app backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Chat",
-			"item": [],
-			"protocolProfileBehavior": {}
+			"item": []
 		},
 		{
 			"name": "Diagnosis",
@@ -16,7 +15,6 @@
 				{
 					"name": "Admin",
 					"item": [],
-					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -72,12 +70,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"survey\": 1,\n\t\"answers\": [\n\t\t{\n\t\t\t\"answer_text\": true,\n\t\t\t\"question\": 1\n\t\t},\n\t\t{\n\t\t\t\"answer_text\": false,\n\t\t\t\"question\": 2\n\t\t}\n\t]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n\t\"survey\": 1,\n\t\"answers\": [\n\t\t{\n\t\t\t\"answer_text\": true,\n\t\t\t\"question\": 1\n\t\t},\n\t\t{\n\t\t\t\"answer_text\": false,\n\t\t\t\"question\": 2\n\t\t}\n\t]\n}"
 								},
 								"url": {
 									"raw": "{{host}}/api/v1/diagnosis/diagnosis/",
@@ -96,12 +89,449 @@
 							"response": []
 						}
 					],
-					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\":\"rafael\",\n\t\"password\":\"admin\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/auth/token/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"token",
+										""
+									]
+								},
+								"description": "Endpoint to do a normal login"
+							},
+							"response": [
+								{
+									"name": "Successful login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"username\":\"rafael\",\n\t\"password\":\"admin\"\n}"
+										},
+										"url": {
+											"raw": "{{host}}/api/v1/auth/token/",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"token",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Apr 2020 15:07:05 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.7.3"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "438"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU4NjcwNDAyNSwianRpIjoiMmE5NDc4ZGEyYTFlNDY5MmJlZjlhOGQ4NTczNmY4N2YiLCJ1c2VyX2lkIjoxfQ.DE5zMAUbH_Y1qlwHc5dpHakna_EJz0OOoa7wXvYNZ4I\",\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg2NjE3OTI1LCJqdGkiOiI0NTA0MmM1ZmU3M2I0Yjk0YTliMzRhNzUxOWVhZTI2OSIsInVzZXJfaWQiOjF9.WfNsGzX-zUEPysshsb2IxTXrZO291F3-3ZW0tRGvMB0\"\n}"
+								},
+								{
+									"name": "Error login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"username\":\"rafael\",\n\t\"password\":\"admin123\"\n}"
+										},
+										"url": {
+											"raw": "{{host}}/api/v1/auth/token/",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"token",
+												""
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Apr 2020 15:09:35 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.7.3"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "WWW-Authenticate",
+											"value": "Bearer realm=\"api\""
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "63"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"detail\": \"No active account found with the given credentials\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Social login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "social-login-token",
+										"value": "1212dassasdsadasdsdass",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user_name_social_network\":\"monca\",\n\t\"social_network\":\"facebook\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/auth/token/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"token",
+										""
+									]
+								},
+								"description": "Login via social token, if the social token does not exist in the db. This will validate and create a new user."
+							},
+							"response": [
+								{
+									"name": "Error social login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "social-login-token",
+												"value": "1212dassasdsadasdsdass",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"user_name_social_network\":\"monca\",\n\t\"social_network\":\"facebook\"\n}"
+										},
+										"url": {
+											"raw": "{{host}}/api/v1/auth/token/",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"token",
+												""
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Apr 2020 15:15:05 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.7.3"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "WWW-Authenticate",
+											"value": "Bearer realm=\"api\""
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "63"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"detail\": \"No active account found with the given credentials\"\n}"
+								},
+								{
+									"name": "Successful social login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "social-login-token",
+												"value": "1212dassasdsadasdsdass",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"user_name_social_network\":\"monca\",\n\t\"social_network\":\"facebook\"\n}"
+										},
+										"url": {
+											"raw": "{{host}}/api/v1/auth/token/",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"token",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Apr 2020 15:13:57 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.7.3"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "438"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU4NjcwNDQzNywianRpIjoiMGIyNjM1NWM5NjUxNDMwMDhmZTFjNzEwZWRjYjgyMTYiLCJ1c2VyX2lkIjo5fQ.Mk7HGhON4zQMc0LcPf8cqKiZLJnIFRWiEWIrcNUiyLQ\",\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg2NjE4MzM3LCJqdGkiOiJjNjA1Nzk1NThjNjU0Y2RkODM4MWNmZmQzNjY0MzBmNSIsInVzZXJfaWQiOjl9.aWKhLqpJ-V58rHCEZ4L2IBFP3dV8ZprKxj-Mv0lXA-U\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Folder groups things related to login endpoints",
 					"_postman_isSubFolder": true
 				}
 			],
-			"protocolProfileBehavior": {}
+			"description": "This folder will have everything about the authentication, users, permissions used in the project",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dda79122-8032-4d1e-9dcf-0f2c5f6409d5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7551a739-744c-4065-a43b-56089972ae45",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
-	"protocolProfileBehavior": {}
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e20bebe5-6427-4dec-835c-62c18ce16a16",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9a7e7c36-f646-4934-8760-7a0c073e8890",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e6191fb9-3471-475a-a652-d051945892e2",
+			"key": "host",
+			"value": "localhost:8000",
+			"type": "string"
+		}
+	]
 }
